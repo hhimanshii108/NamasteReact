@@ -1,24 +1,26 @@
-// <div>
-//     <div>
-//         <h1></h1>
-//         <h2></h2>
-//     </div>
-// </div>
-// ReactElement (object)=> HTML (Browser understands)
-
 import React from "react";
 import ReactDOM from "react-dom/client";
-const parent = React.createElement("div", { id: "parent" }, [
-  React.createElement("div", { id: "child" }, [
-    React.createElement("h1", {}, "I am a react heading"),
-    React.createElement("h2", {}, "i am heading 2"),
-  ]),
-  React.createElement("div", { id: "child2" }, [
-    React.createElement("h1", {}, "I am a react2 heading"),
-    React.createElement("h2", {}, "i am heading 22"),
-  ]),
-]);
-// const heading=React.createElement("h1",{id:"heading"},"hello world using react");
-// console.log(heading) // object
+const Heading = <h1 id="heading"> Heading using jsx</h1>;
 const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(parent); // it will be responsibe for taking the object and converting it to h1 tag and puts it in root
+
+const element = <h2 className="heading">this is normal react element</h2>;
+
+const Title = () => {
+  return <h1>This is a title component</h1>;
+};
+
+const HeadingComponent = () => {
+  return (
+    <>
+      <Title />
+      <h2>
+        {2 + 4}
+        {6 + 3}
+      </h2>
+      {element}
+      <h1>functional components</h1>
+      <h1>Heading component</h1>
+    </>
+  );
+};
+root.render(<HeadingComponent />);
