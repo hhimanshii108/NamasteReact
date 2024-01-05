@@ -1,0 +1,26 @@
+{
+  "name": "namstereact",
+  "version": "1.0.0",
+  "description": "this is namaste react by himaaa",
+  "main": "app.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/hhimanshii108/NamasteReact.git"
+  },
+  "author": "hima",
+  "license": "ISC",
+  "devDependencies": {
+    "parcel": "^2.11.0",
+    "parcel-bundler": "^1.12.5"
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "browserslist": [
+    "last 2 version"
+  ]
+}
