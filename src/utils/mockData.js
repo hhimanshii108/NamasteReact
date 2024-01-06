@@ -1,58 +1,3 @@
-// Header
-// ----> logo
-// ----> nav-items
-// body
-// ----> Search
-// ----> restraunt container
-// ----> restraunt card
-//           ---> image, name of res, Rating, quisine, delivery time
-// footer
-import React from "react";
-import ReactDOM from "react-dom/client";
-
-const root = ReactDOM.createRoot(document.getElementById("root"));
-
-const Header = () => {
-  return (
-    <div className="header">
-      <div className="logo-container">
-        <img
-          className="logo"
-          src="https://imgs.search.brave.com/1tPQ_WJHWTliGN-Hs1OSHIJSv3Mo9NKerpVBUV0iUlQ/rs:fit:860:0:0/g:ce/aHR0cHM6Ly9wZW5q/aS5jby93cC1jb250/ZW50L3VwbG9hZHMv/MjAyMi8wOC8xLi1n/cnViaHViLWxvZ28u/anBn"
-        />
-      </div>
-      <div className="nav-items">
-        <ul>
-          <li>Home</li>
-          <li>About us</li>
-          <li>Contact us</li>
-          <li>Cart</li>
-        </ul>
-      </div>
-    </div>
-  );
-};
-const RestrauntCard = (props) => {
-  const { resData } = props;
-  const { name, cuisines, costForTwo, avgRating } = resData.info;
-  const { deliveryTime } = resData.info.sla;
-  return (
-    <div className="res-card">
-      <img
-        className="res-logo"
-        src={
-          "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/" +
-          resData.info.cloudinaryImageId
-        }
-      />
-      <h3>{name}</h3>
-      <h3>{cuisines.join(", ")}</h3>
-      <h3>{costForTwo}</h3>
-      <h3>{avgRating}</h3>
-      <h3>{deliveryTime} minutues</h3>
-    </div>
-  );
-};
 const resList = [
   {
     info: {
@@ -613,100 +558,17 @@ const resList = [
       id: "88166",
       name: "Nath'S Chinese",
       cloudinaryImageId: "fsm15mqsuninmtb6twec",
-      locality: "Lakkhi Bagh",
-      areaName: "Khurbura",
       costForTwo: "₹400 for two",
       cuisines: ["North Indian", "Chinese", "Tandoor"],
       avgRating: 4.3,
-      parentId: "13608",
+
       avgRatingString: "4.3",
-      totalRatingsString: "10K+",
+
       sla: {
         deliveryTime: 23,
-        lastMileTravel: 0.3,
-        serviceability: "SERVICEABLE",
-        slaString: "23 mins",
-        lastMileTravelString: "0.3 km",
-        iconType: "ICON_TYPE_EMPTY",
       },
-      availability: {
-        nextCloseTime: "2024-01-06 23:00:00",
-        opened: true,
-      },
-      badges: {},
-      isOpen: true,
-      type: "F",
-      badgesV2: {
-        entityBadges: {
-          imageBased: {},
-          textBased: {},
-          textExtendedBadges: {},
-        },
-      },
-      aggregatedDiscountInfoV3: {
-        header: "₹120 OFF",
-        subHeader: "ABOVE ₹199",
-        discountTag: "FLAT DEAL",
-      },
-      orderabilityCommunication: {
-        title: {},
-        subTitle: {},
-        message: {},
-        customIcon: {},
-      },
-      differentiatedUi: {
-        displayType: "ADS_UI_DISPLAY_TYPE_ENUM_DEFAULT",
-        differentiatedUiMediaDetails: {
-          mediaType: "ADS_MEDIA_ENUM_IMAGE",
-          lottie: {},
-          video: {},
-        },
-      },
-      reviewsSummary: {},
-      displayType: "RESTAURANT_DISPLAY_TYPE_DEFAULT",
-      restaurantOfferPresentationInfo: {},
     },
-    analytics: {
-      context: "seo-data-4f7600dc-9025-4ac3-bce8-478edd6e4cbc",
-    },
-    cta: {
-      link: "https://www.swiggy.com/restaurants/naths-chinese-lakkhi-bagh-khurbura-dehradun-88166",
-      text: "RESTAURANT_MENU",
-      type: "WEBLINK",
-    },
-    widgetId: "collectionV5RestaurantListWidget_SimRestoRelevance_food_seo",
   },
 ];
 
-const Body = () => {
-  return (
-    <div className="body">
-      <div className="search">Search</div>
-      <div className="res-container">
-        {/* <RestrauntCard resData={resList[0]} />
-        <RestrauntCard resData={resList[1]} />
-        <RestrauntCard resData={resList[2]} />
-        <RestrauntCard resData={resList[3]} />
-        <RestrauntCard resData={resList[4]} />
-        <RestrauntCard resData={resList[5]} />
-        <RestrauntCard resData={resList[6]} />
-        <RestrauntCard resData={resList[7]} /> */}
-        <RestrauntCard resData={resList[8]} />
-        {resList.map((res) => {
-          return <RestrauntCard key={res.info.id} resData={res} />;
-        })}
-      </div>
-    </div>
-  );
-};
-
-const App = () => {
-  return (
-    <div>
-      <Header />
-      <Body />
-    </div>
-  );
-};
-
-root.render(<App />);
+export default resList;
