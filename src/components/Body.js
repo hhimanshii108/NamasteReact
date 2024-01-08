@@ -2,6 +2,7 @@ import RestrauntCard from "./RestrauntCard";
 import React from "react";
 import { useState, useEffect } from "react";
 import Shimmer from "./Shimmer";
+import { Link } from "react-router-dom";
 
 const Body = () => {
   const [list, setList] = useState([]);
@@ -12,15 +13,20 @@ const Body = () => {
     fetchData();
   }, []);
   const fetchData = async () => {
+    // const data = await fetch(
+    //   "https://www.swiggy.com/dapi/restaurants/list/v5?lat=30.3164945&lng=78.03219179999999&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
+    // );
+
     const data = await fetch(
-      "https://www.swiggy.com/dapi/restaurants/list/v5?lat=30.3164945&lng=78.03219179999999&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
+      "https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9715987&lng=77.5945627&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
     );
+
     const json = await data.json();
     setList(
-      json.data.cards[5].card.card.gridElements.infoWithStyle.restaurants
+      json?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants
     );
     setUpdateList(
-      json.data.cards[5].card.card.gridElements.infoWithStyle.restaurants
+      json?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants
     );
     //console.log(json);
   };
@@ -77,7 +83,11 @@ const Body = () => {
       <div className="res-container">
         {/* <RestrauntCard resData={resList[0]} */}
         {updateList.map((res) => {
-          return <RestrauntCard key={res.info.id} resData={res} />;
+          return (
+            <Link key={res?.info?.id} to={"/restaurants/" + res?.info?.id}>
+              <RestrauntCard resData={res} />
+            </Link>
+          );
         })}
       </div>
     </div>

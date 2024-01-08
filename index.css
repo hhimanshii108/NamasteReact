@@ -66,3 +66,7 @@
 .filter {
   display: flex;
 }
+.menu-img {
+  width: 200px;
+  height: 200px;
+}
